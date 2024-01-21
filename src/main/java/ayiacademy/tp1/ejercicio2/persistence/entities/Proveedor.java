@@ -34,5 +34,9 @@ public class Proveedor implements Serializable {
         this.estado = estado;
     }
 
+    public String getEstadoDescripcion() {
+        return Estado.toString(estado);
+    }
+
     private static final long serialVersionUID = 1L;
 }

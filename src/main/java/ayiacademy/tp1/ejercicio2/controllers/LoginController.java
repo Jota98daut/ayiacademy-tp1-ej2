@@ -21,7 +21,7 @@ public class LoginController {
     @PostMapping("/login")
     public RedirectView postLogin(@RequestParam String nombre, @RequestParam String password) {
         if (usuariosService.validatePassword(nombre, password))
-            return new RedirectView("/listado");
+            return new RedirectView("/proveedores");
         else
             return new RedirectView("/login");
     }
