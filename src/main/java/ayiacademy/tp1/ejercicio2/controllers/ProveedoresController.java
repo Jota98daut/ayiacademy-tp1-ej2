@@ -13,7 +13,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class ProveedoresController {
-  @Autowired private ProveedoresService proveedoresService;
+  @Autowired
+  private ProveedoresService proveedoresService;
 
   @Value("${constants.proveedores-title}")
   private String proveedoresTitle;
@@ -37,7 +38,20 @@ public class ProveedoresController {
     return new RedirectView("/proveedores");
   }
 
-  @GetMapping("/proveedores/eliminar/{idProveedor}")
+  @GetMapping("/proveedor/{idProveedor}/editar")
+  public String getEditarProveedor(@PathVariable int idProveedor, Model model) {
+    Proveedor proveedor = proveedoresService.get(idProveedor).get();
+    model.addAttribute("proveedor", proveedor);
+    return "proveedores/editar";
+  }
+
+  @PostMapping("/proveedor/editar")
+  public RedirectView postEditarProveedor(Proveedor proveedor) {
+    proveedoresService.save(proveedor);
+    return new RedirectView("/proveedores");
+  }
+
+  @GetMapping("/proveedor/{idProveedor}/eliminar")
   public RedirectView getEliminarProveedor(@PathVariable int idProveedor) {
     proveedoresService.delete(idProveedor);
     return new RedirectView("/proveedores");

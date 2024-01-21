@@ -13,6 +13,11 @@ public class LoginController {
     @Autowired
     private UsuariosService usuariosService;
 
+    @GetMapping("/")
+    public RedirectView getIndex() {
+        return new RedirectView("/login");
+    }
+
     @GetMapping("/login")
     public String getLogin() {
         return "login";

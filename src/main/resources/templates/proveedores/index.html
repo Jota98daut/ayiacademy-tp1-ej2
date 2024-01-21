@@ -24,23 +24,26 @@
             <th>Sitio web</th>
             <th>Estado</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr th:each="proveedor: ${proveedores}">
-            <td th:text="${proveedor.getIdProveedor()}"></td>
-            <td th:text="${proveedor.getNombre()}"></td>
-            <td th:text="${proveedor.getTelefono()}"></td>
-            <td th:text="${proveedor.getDireccion()}"></td>
-            <td th:text="${proveedor.getEmail()}"></td>
-            <td th:text="${proveedor.getSitioWeb()}"></td>
-            <td th:text="${proveedor.getEstadoDescripcion()}"></td>
+            <td class="align-middle" th:text="${proveedor.getIdProveedor()}"></td>
+            <td class="align-middle" th:text="${proveedor.getNombre()}"></td>
+            <td class="align-middle" th:text="${proveedor.getTelefono()}"></td>
+            <td class="align-middle" th:text="${proveedor.getDireccion()}"></td>
+            <td class="align-middle" th:text="${proveedor.getEmail()}"></td>
+            <td class="align-middle" th:text="${proveedor.getSitioWeb()}"></td>
+            <td class="align-middle" th:text="${proveedor.getEstadoDescripcion()}"></td>
+            <td><a th:href="@{/proveedor/} + ${proveedor.getIdProveedor()} + @{/editar}">
+                <button class="btn btn-outline-primary">update</button>
+              </a>
+            </td>
             <td>
-              <a
-                th:href="@{/proveedores/eliminar/} + ${proveedor.getIdProveedor()}"
-                class="text-danger"
-                ><i class="bi bi-trash-fill"></i
-              ></a>
+              <a th:href="@{/proveedor/} + ${proveedor.getIdProveedor()} + @{/eliminar}" >
+                <button class="btn btn-outline-danger bi bi-trash-fill"></button>
+              </a>
             </td>
           </tr>
         </tbody>
