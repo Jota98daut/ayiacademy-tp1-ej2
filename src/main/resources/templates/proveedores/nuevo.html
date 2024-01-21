@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar proveedor</title>
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Agregar proveedor</h1>
+
+    <form action="#" th:action="@{/proveedores/nuevo}" method="post" th:object="${proveedor}">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input th:field="*{nombre}" type="text" name="nombre" id="nombre" class="form-control mb-3">
+
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input th:field="*{telefono}" type="tel" name="telefono" id="telefono" class="form-control mb-3">
+
+        <label for="direccion" class="form-label">Dirección</label>
+        <input th:field="*{direccion}" type="text" name="direccion" id="direccion" class="form-control mb-3">
+
+        <label for="email" class="form-label">Email</label>
+        <input th:field="*{email}" type="email" name="email" id="email" class="form-control mb-3">
+
+        <label for="sitio-web" class="form-label">Sitio Web</label>
+        <input th:field="*{sitioWeb}" type="url" name="sitio-web" id="sitio-web" class="form-control mb-3">
+
+        <label for="estado" class="form-label">Estado</label>
+        <select th:field="*{estado}" name="estado" id="estado" class="form-select mb-3">
+          <option value="1" selected>Activo</option>
+          <option value="2">Inactivo</option>
+          <option value="3">Dado de baja</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Agregar</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </form>
+</div>
+
+<script src="/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
