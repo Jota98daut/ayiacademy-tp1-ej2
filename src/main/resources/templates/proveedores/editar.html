@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>Agregar proveedor</title>
+    <title>Editar proveedor</title>
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css" />
   </head>
   <body>
@@ -34,8 +34,15 @@
           <option value="3">Dado de baja</option>
         </select>
 
-        <button type="submit" class="btn btn-primary">Agregar</button>
-        <button type="reset" class="btn btn-secondary">Reset</button>
+        <div class="row justify-content-between">
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <button type="reset" class="btn btn-outline-primary">Reset</button>
+          </div>
+          <div class="col-auto">
+            <a th:href="@{/proveedores}" class="btn btn-secondary">Volver</a>
+          </div>
+        </div>
       </form>
     </div>
 

@@ -10,24 +10,21 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class LoginController {
-    @Autowired
-    private UsuariosService usuariosService;
+  @Autowired private UsuariosService usuariosService;
 
-    @GetMapping("/")
-    public RedirectView getIndex() {
-        return new RedirectView("/login");
-    }
+  @GetMapping("/")
+  public RedirectView getIndex() {
+    return new RedirectView("/login");
+  }
 
-    @GetMapping("/login")
-    public String getLogin() {
-        return "login";
-    }
+  @GetMapping("/login")
+  public String getLogin() {
+    return "login";
+  }
 
-    @PostMapping("/login")
-    public RedirectView postLogin(@RequestParam String nombre, @RequestParam String password) {
-        if (usuariosService.validatePassword(nombre, password))
-            return new RedirectView("/proveedores");
-        else
-            return new RedirectView("/login");
-    }
+  @PostMapping("/login")
+  public RedirectView postLogin(@RequestParam String nombre, @RequestParam String password) {
+    if (usuariosService.validatePassword(nombre, password)) return new RedirectView("/proveedores");
+    else return new RedirectView("/login");
+  }
 }
